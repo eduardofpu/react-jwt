@@ -22,8 +22,8 @@ As depedencias esta no arquivo package.json
 
 curl POST http://localhost:8000/auth/register
 {
-  "username":"Eduardo",
-  "email": "eduardo@gmail.com",
+  "username":"Adriano",
+  "email": "adriano@gmail.com",
   "password":"123456"
 }
 
@@ -34,7 +34,7 @@ curl POST http://localhost:8000/auth/register
 
 curl POST http://localhost:8000/sessions
 {
-  "email": "eduardo@gmail.com",
+  "email": "adriano@gmail.com",
   "password":"123456"
 }
 
