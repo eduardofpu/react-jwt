@@ -4,9 +4,9 @@ const jsonServer = require('json-server')
 const jwt = require('jsonwebtoken')
 
 const server = jsonServer.create()
-const router = jsonServer.router('./db.json')
+const router = jsonServer.router('db.json')
 const middlewares = jsonServer.defaults()
-const userdb = JSON.parse(fs.readFileSync('./db.json', 'UTF-8'))
+const userdb = JSON.parse(fs.readFileSync('db.json', 'UTF-8'))
 const port = process.env.PORT || 8000;
 
 server.use(bodyParser.urlencoded({extended: true}))
@@ -67,12 +67,12 @@ fs.readFile("./db.json", (err, data) => {
 
     //Add new user
     data.users.push({id: last_item_id + 1, username: username, email: email, password: password}); //add some data
-    var writeData = fs.writeFile("./db.json", JSON.stringify(data), (err, result) => {  // WRITE
+    fs.writeFile("db.json", JSON.stringify(data), (err) => {  // WRITE
         if (err) {
           const status = 401
           const message = err
           res.status(status).json({status, message})
-          return
+          return 
         }
     });
 });
@@ -81,6 +81,7 @@ fs.readFile("./db.json", (err, data) => {
   const access_token = createToken({email, password})
   console.log("Access Token:" + access_token);
   res.status(200).json({access_token})
+
 })
 
 // Login to one of the users from ./users.json

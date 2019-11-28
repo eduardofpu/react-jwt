@@ -2,7 +2,7 @@
   "name": "backend",
   "version": "1.0.0",
   "description": "Simple Fake API",
-  "main": "main.js",
+  "main": "index.js",
   "scripts": {
     "start": "json-server --watch ./db.json --port 8000",
     "start-auth": "node server.js"

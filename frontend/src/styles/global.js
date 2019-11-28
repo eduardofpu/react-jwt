@@ -1,8 +1,9 @@
-import { createGlobalStyle } from "styled-components";
+ import { injectGlobal } from "styled-components";
+
 
 import "font-awesome/css/font-awesome.css";
 
-createGlobalStyle`
+injectGlobal`
 * {
   box-sizing: border-box;
   padding: 0;

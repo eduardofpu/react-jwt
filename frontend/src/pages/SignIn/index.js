@@ -23,8 +23,8 @@ class SignIn extends Component {
     } else {
       try {
         const response = await api.post("/sessions", { email, password }, { crossdomain: true });
-        console.log("token: ", response)
-        login(response.data.token);
+        // console.log("token: ", response.data.access_token)
+        login(response.data.access_token);
         this.props.history.push("/app");
       } catch (err) {
         this.setState({
