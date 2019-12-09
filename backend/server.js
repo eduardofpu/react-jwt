@@ -39,7 +39,7 @@ function isAuthenticatedNo({email, password}){
 }
 
 // Register New User
-server.post('/auth/register', (req, res) => {
+server.post('v1/register', (req, res) => {
   console.log("register endpoint called; request body:");
   console.log(req.body);
   const {username, email, password} = req.body;
@@ -67,7 +67,7 @@ fs.readFile("./db.json", (err, data) => {
 
     //Add new user
     data.users.push({id: last_item_id + 1, username: username, email: email, password: password}); //add some data
-    fs.writeFile("db.json", JSON.stringify(data), (err) => {  // WRITE
+    var writeData = fs.writeFile("./db.json", JSON.stringify(data), (err, result) => {  // WRITE
         if (err) {
           const status = 401
           const message = err
@@ -85,7 +85,7 @@ fs.readFile("./db.json", (err, data) => {
 })
 
 // Login to one of the users from ./users.json
-server.post('/sessions',  (req, res) => {
+server.post('/login',  (req, res) => {
   console.log("login endpoint called; request body:");
   console.log(req.body);
   const {email, password} = req.body;

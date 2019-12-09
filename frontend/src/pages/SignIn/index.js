@@ -22,9 +22,10 @@ class SignIn extends Component {
       this.setState({ error: "Preencha e-mail e senha para continuar!" });
     } else {
       try {
-        const response = await api.post("/sessions", { email, password }, { crossdomain: true });
+        const response = await api.post("/login", { email, password }, { crossdomain: true });
         // console.log("token: ", response.data.access_token)
-        login(response.data.access_token);
+        // login(response.data.access_token);
+        login(response.data);
         this.props.history.push("/app");
       } catch (err) {
         this.setState({

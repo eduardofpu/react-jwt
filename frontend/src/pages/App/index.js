@@ -17,7 +17,7 @@ class Home extends Component {
         <Container>
           <Header>
 
-               <nav class="vMenu">          
+               <nav className="vMenu">          
                 <ul>
                     <li><a href="">Início</a></li>
                     
@@ -25,7 +25,7 @@ class Home extends Component {
 
             </nav>
 
-            <button class="btMenu bgGradient" onClick={this.handleLogout}><i class="fa fa-sign-out" aria-hidden="true"></i></button>
+            <button className="btMenu bgGradient" onClick={this.handleLogout}><i className="fa fa-sign-out" aria-hidden="true"></i></button>
               
           </Header>  
           <center><h1>Home</h1></center>
